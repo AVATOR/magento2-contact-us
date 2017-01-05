@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module AVATOR_ContactUs
+ *
+ * @category    AVATOR
+ * @package     AVATOR_ContactUs
+ * @author      Oleksii Golub oleksii.v.golub@gmail.com
+ * @copyright   Copyright (c) 2017
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="send_answer_template" label="Email Form" file="answer_form.html" type="text" module="AVATOR_ContactUs" area="frontend"/>
+</config>

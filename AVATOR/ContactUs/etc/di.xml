@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module AVATOR_ContactUs
+ *
+ * @category    AVATOR
+ * @package     AVATOR_ContactUs
+ * @author      Oleksii Golub oleksii.v.golub@gmail.com
+ * @copyright   Copyright (c) 2017
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Contact\Controller\Index\Post">
+        <plugin name="avator_contactus" type="AVATOR\ContactUs\Plugin\Contact\Post" sortOrder="1"/>
+    </type>
+    <preference for="AVATOR\ContactUs\Api\Data\ContactUsInterface" type="AVATOR\ContactUs\Model\ContactUs" />
+    <virtualType name="ContactUsGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="ContactUsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">AVATOR\ContactUs\Model\Resource\ContactUs\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ContactUsGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AVATOR\ContactUs\Model\ResourceModel\ContactUs\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">avator_contactus</argument>
+            <argument name="resourceModel" xsi:type="string">AVATOR\ContactUs\Model\ResourceModel\ContactUs</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="avator_contactus_listing_data_source" xsi:type="string">AVATOR\ContactUs\Model\ResourceModel\ContactUs\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module AVATOR_ContactUs xml
+ *
+ * @category    AVATOR
+ * @package     AVATOR_ContactUs
+ * @author      Oleksii Golub oleksii.v.golub@gmail.com
+ * @copyright   Copyright (c) 2017
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="AVATOR_ContactUs" setup_version="1.0.0" />
+</config>
